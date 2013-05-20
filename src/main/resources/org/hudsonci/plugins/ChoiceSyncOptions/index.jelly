@@ -1,0 +1,18 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+        xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+        xmlns:i="jelly:fmt" xmlns:p="/lib/hudson/project">
+
+  <f:entry title="${%Node}">
+    <div name="parameter">
+      <input type="hidden" name="name" value="${it.name}"/>
+        <select name="slave">
+          <f:option>master</f:option>
+          <j:forEach var="s" items="${app.slaves}">
+            <f:option>${s.nodeName}</f:option>
+          </j:forEach>
+        </select>
+    </div>
+  </f:entry>
+
+</j:jelly>
